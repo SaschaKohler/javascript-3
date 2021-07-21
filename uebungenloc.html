@@ -19,7 +19,7 @@
         <li><a href="uebungenloc.html">locationHREF</a></li>
 
     </ul>
-    <form action="js.html" method="GET" name="formular" onsubmit="return checkit()">
+    <form action="" method="GET" name="formular" onsubmit="return checkit()">
         <div class="form-row">
             <label for="inputname">Name</label>
             <input id="inputname" name="name">
@@ -40,13 +40,13 @@
         </div>
         <button type="submit">Submit it!</button>
     </form>
-    <p id="absatz"></p>
+    <p id="absatz">asdads</p>
 
     <script>
         "use strict";
-        let str = document.Location.search;
-      /  str = str.substr(1);
-
+        let str = location.search;
+        str = str.substr(1);
+        console.log(str);
         let arr = str.split('&');
         for (let i = 0; i < arr.length; i++) {
             arr[i] = arr[i].split('=');
