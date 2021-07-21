@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <header>
+        <ul>
+            <li><a href="index.html">DOM classic</a></li>
+            <li><a href="site1.html">DOM By Id</a></li>
+        </ul>
+    </header>
+    <main>
+        <h1></h1>
+        <p></p>
+    </main>
+    <script>
+        "use strict";
+        let h1 = prompt("Welche Überschrift");
+        document.body
+            .firstElementChild
+            .nextElementSibling
+            .firstElementChild
+            .innerHTML = h1;
+
+        let p = prompt("Was soll in denm Absatz");
+
+        document.body
+            .firstElementChild
+            .nextElementSibling
+            .firstElementChild
+            .nextElementSibling
+            .innerHTML = p;
+
+    </script>
 </body>
+
 </html>
