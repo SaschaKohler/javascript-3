@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <header>
         <ul>
             <li><a href="index.html">DOM classic</a></li>
             <li><a href="site1.html">DOM By Id</a></li>
@@ -35,9 +34,6 @@
             </div>
             <button type="submit">Absenden</button>
         </form>
-    </header>
-    <main>
-    </main>
     <script>
         "use strict";
         function checkit() {
@@ -74,6 +70,8 @@
 
         }
 
+        let shown = false;
+        
         function mailfocus() {
             alert("Please provide an email");
             inputmail.focus();
@@ -82,7 +80,6 @@
         function mailblur() {
             if (!inputmail.value.includes("@")) {
                 alert("Please provide a correct mail");
-                inputmail.focus();
             }
         }
 

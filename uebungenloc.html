@@ -10,70 +10,55 @@
 </head>
 
 <body>
-    <header>
-        <ul>
-            <li><a href="index.html">DOM classic</a></li>
-            <li><a href="site1.html">DOM By Id</a></li>
-            <li><a href="uebungen.html">Formulare übungen</a></li>
-            <li><a href="uebungenforms.html">Formulare abfragen</a></li>
-            <li><a href="uebungenmail.html">Formulare mail</a></li>
-            <li><a href="uebungenloc.html">locationHREF</a></li>
+    <ul>
+        <li><a href="index.html">DOM classic</a></li>
+        <li><a href="site1.html">DOM By Id</a></li>
+        <li><a href="uebungen.html">Formulare übungen</a></li>
+        <li><a href="uebungenforms.html">Formulare abfragen</a></li>
+        <li><a href="uebungenmail.html">Formulare mail</a></li>
+        <li><a href="uebungenloc.html">locationHREF</a></li>
 
-        </ul>
-        <form action="" name="formular" onsubmit="return checkit()">
-            <div class="form-row">
-                <label for="inputname">Name</label>
-                <input id="inputname" name="name">
-            </div>
-            <div class="form-row">
-                <label for="inputmail">Email</label>
-                <input id="inputmail" name="mail">
-            </div>
-            <div class="form-row">
-                <label for="inputalter">Alter</label>
-                <input id="inputalter" name="alter">
-            </div>
-            <button type="submit">Absenden</button>
-        </form>
-    </header>
-    <main>
-    </main>
+    </ul>
+    <form action="js.html" method="GET" name="formular" onsubmit="return checkit()">
+        <div class="form-row">
+            <label for="inputname">Name</label>
+            <input id="inputname" name="name">
+        </div>
+        <div class="form-row">
+            <label for="inputmail">Email</label>
+            <input id="inputmail" name="mail">
+        </div>
+        <div class="form-row">
+            <label for="inputalter">Alter</label>
+            <input id="inputalter" name="alter">
+        </div>
+        <button type="submit">Absenden</button>
+    </form>
+    <form action="uebungenloc.html" method="GET">
+        <div class="form-row">
+            <input type="text" name="askMe" placeholder="ask me something">
+        </div>
+        <button type="submit">Submit it!</button>
+    </form>
+    <p id="absatz"></p>
+
     <script>
         "use strict";
-        function checkit(){
-            if(inputname.value == ""){
-                alert("Please type in a name");
-                inputname.focus();
-                return false;
-            }
-            if(!inputmail.value.includes('@')){
-                alert('Please provide an email');
-                inputmail.focus();
-                return false;
-            }
-            if(inputalter.value == ""){
-                alert("Gib ein alter ein");
-                inputalter.focus();
-                return false;
-            }
-            let number = true;
-            console.log(inputalter.value.length);
-            for(let i = 0; i < inputalter.value.length; ++i){
-                if(inputalter.value.charAt(i) < "0" || 
-                    inputalter.value.charAt(i) > "9"){
-                        number = false;
-                    }
-            }
+        let str = document.Location.search;
+      /  str = str.substr(1);
 
-            if(!number) {
-                alert("please provide a number");
-                inputalter.focus();
-                return false;
-            }
-            return true;
+        let arr = str.split('&');
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].split('=');
+        }
+        let inhalt = "";
+        for (let wert of arr) {
+            inhalt += wert[0] + ": " + wert[1] + "<br>";
 
         }
-    
+
+        document.getElementById("absatz").innerHTML =
+        decodeURIComponent(inhalt);
     </script>
 </body>
 
