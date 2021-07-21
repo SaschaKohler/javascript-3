@@ -1,0 +1,28 @@
+form{
+    padding:1em;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    border: 3px solid salmon;
+    background: salmon;
+    flex-wrap: wrap;
+    align-items:center
+}
+button{
+    margin-top:1em;
+    padding:1em;
+}
+input{
+    margin-top:1em;
+    padding:1em;
+    width:90%;
+    
+    border:3px solid silver;
+    border-radius: 5px;
+
+
+}
+select{
+    width:20%;
+    margin:0 auto;
+}

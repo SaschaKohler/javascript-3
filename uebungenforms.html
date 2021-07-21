@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="index.html">DOM classic</a></li>
+            <li><a href="site1.html">DOM By Id</a></li>
+            <li><a href="uebungen.html">Formulare übungen</a></li>
+            <li><a href="uebungenforms.html">Formulare abfragen</a></li>
+            <li><a href="uebungenmail.html">Formulare mail</a></li>
+        </ul>
+        <form action="" name="formular">
+            <input name="field1" id="field1" value="Formular field 1">
+            <button id="btn1" type="button">Fokus da field 1</button>
+            <input name="field2" value="Formular field 2">
+            <input name="field3" value="Formular field 3">
+            <input type="password" name="" id="password" value="password">
+
+            <label for="field4">Do you have fun ?</label>
+            <input name="field4" type="checkbox">
+            <select id="option">
+                <option value="opt1">Spass mal 3</option>
+                <option value="opt2">Spass mal 2</option>
+                <option value="opt3">Spass mal 4</option>
+                <option value="opt4">---no fun at all---</option>
+            </select>
+        </form>
+    </header>
+    <main>
+    </main>
+    <script>
+        "use strict";
+        document.forms.formular.elements.field4.checked = true;
+        option.selectedIndex = 2;
+        let boolean = false;
+
+        function fokus1() {
+            field1.value = "";
+            field1.focus();
+        }
+        function hint() {
+            if (!boolean) {
+                boolean = true;
+                alert("Please type in a password");
+            }
+        }
+        password.oninput = hint;
+        btn1.onclick = fokus1;
+
+    </script>
+</body>
+
+</html>

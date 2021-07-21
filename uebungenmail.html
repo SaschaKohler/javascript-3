@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="index.html">DOM classic</a></li>
+            <li><a href="site1.html">DOM By Id</a></li>
+            <li><a href="uebungen.html">Formulare übungen</a></li>
+            <li><a href="uebungenforms.html">Formulare abfragen</a></li>
+            <li><a href="uebungenmail.html">Formulare mail</a></li>
+            <li><a href="uebungenloc.html">locationHREF</a></li>
+
+        </ul>
+        <form action="" name="formular" onsubmit="return checkit()">
+            <div class="form-row">
+                <label for="inputname">Name</label>
+                <input id="inputname" name="name">
+            </div>
+            <div class="form-row">
+                <label for="inputmail">Email</label>
+                <input id="inputmail" name="mail">
+            </div>
+            <div class="form-row">
+                <label for="inputalter">Alter</label>
+                <input id="inputalter" name="alter">
+            </div>
+            <button type="submit">Absenden</button>
+        </form>
+    </header>
+    <main>
+    </main>
+    <script>
+        "use strict";
+        function checkit() {
+            if (inputname.value == "") {
+                alert("Please type in a name");
+                inputname.focus();
+                return false;
+            }
+            if (!inputmail.value.includes('@')) {
+                alert('Please provide an email');
+                inputmail.focus();
+                return false;
+            }
+            if (inputalter.value == "") {
+                alert("Gib ein alter ein");
+                inputalter.focus();
+                return false;
+            }
+            let number = true;
+            console.log(inputalter.value.length);
+            for (let i = 0; i < inputalter.value.length; ++i) {
+                if (inputalter.value.charAt(i) < "0" ||
+                    inputalter.value.charAt(i) > "9") {
+                    number = false;
+                }
+            }
+
+            if (!number) {
+                alert("please provide a number");
+                inputalter.focus();
+                return false;
+            }
+            return true;
+
+        }
+
+        function mailfocus() {
+            alert("Please provide an email");
+            inputmail.focus();
+        }
+
+        function mailblur() {
+            if (!inputmail.value.includes("@")) {
+                alert("Please provide a correct mail");
+                inputmail.focus();
+            }
+        }
+
+        // inputmail.onfocus = mailfocus;
+        inputmail.onblur = mailblur;
+
+    </script>
+</body>
+
+</html>
